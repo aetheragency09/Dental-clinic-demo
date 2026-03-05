@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aether Premium Dental Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(to bottom,#f8fbff,#eef4ff);scroll-behavior:smooth;transition:0.4s;}
+.dark{background:#0f172a;color:white;}
+nav{position:fixed;width:100%;padding:18px 60px;display:flex;justify-content:space-between;align-items:center;z-index:1000;transition:0.4s;}
+nav.scrolled{background:white;box-shadow:0 10px 25px rgba(0,0,0,0.05);}
+.dark nav.scrolled{background:#1e293b;}
+nav h2{font-weight:800;color:#0a3d62;}
+.dark nav h2{color:white;}
+nav ul{display:flex;gap:30px;list-style:none;}
+nav a{text-decoration:none;color:#333;font-weight:500;transition:0.3s;}
+.dark nav a{color:white;}
+nav a:hover{color:#0a3d62;}
+.toggle{cursor:pointer;font-size:20px;}
+.hero{height:100vh;background:url("https://images.unsplash.com/photo-1588776814546-cf61c07c6e97?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;display:flex;justify-content:center;align-items:center;text-align:center;position:relative;color:white;}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.6);}
+.hero-content{position:relative;z-index:2;max-width:800px;animation:fadeIn 1.5s;}
+.hero h1{font-size:48px;font-weight:800;transform:translateY(-30px);animation:slideDown 1s forwards;}
+.hero p{margin-top:20px;opacity:0.9;}
+.btn{display:inline-block;margin-top:25px;padding:14px 35px;border-radius:40px;background:#0a3d62;color:white;text-decoration:none;font-weight:600;transition:0.3s;}
+.btn:hover{transform:translateY(-6px);box-shadow:0 15px 30px rgba(0,0,0,0.3);}
+section{padding:120px 60px;}
+.section-title{text-align:center;margin-bottom:50px;}
+.section-title h2{font-size:36px;color:#0a3d62;}
+.dark .section-title h2{color:white;}
+.services{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;}
+.card{width:280px;padding:30px;border-radius:20px;background:rgba(255,255,255,0.7);backdrop-filter:blur(15px);transition:0.4s;box-shadow:0 15px 30px rgba(0,0,0,0.08);}
+.card:hover{transform:translateY(-12px) rotateX(6deg);box-shadow:0 25px 45px rgba(0,0,0,0.15);}
+.dark .card{background:#1e293b;color:white;}
+.packages{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;}
+.package-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(15px);padding:25px;width:260px;border-radius:20px;text-align:center;transition:0.4s;box-shadow:0 15px 30px rgba(0,0,0,0.08);}
+.package-card:hover{transform:translateY(-10px);box-shadow:0 25px 45px rgba(0,0,0,0.2);}
+.package-card h3{margin-bottom:10px;}
+.package-card p{font-size:14px;color:#555;}
+.dark .package-card{background:#1e293b;color:white;}
+.slider-container{position:relative;width:100%;max-width:900px;margin:auto;overflow:hidden;border-radius:20px;}
+.slider-track{display:flex;transition:transform 0.6s ease-in-out;}
+.slide{min-width:100%;position:relative;}
+.slide img{width:100%;border-radius:20px;}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);color:white;border:none;padding:12px;border-radius:50%;cursor:pointer;transition:0.3s;}
+.slider-btn:hover{background:rgba(0,0,0,0.7);}
+#prev{left:10px;}#next{right:10px;}
+.slider-dots{text-align:center;margin-top:15px;}
+.slider-dots span{display:inline-block;width:12px;height:12px;background:#ccc;border-radius:50%;margin:0 5px;cursor:pointer;}
+.slider-dots .active{background:#0a3d62;}
+.testimonials{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;}
+.testimonial-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(15px);padding:20px;width:280px;border-radius:20px;text-align:center;transition:0.4s;box-shadow:0 15px 30px rgba(0,0,0,0.08);}
+.testimonial-card:hover{transform:translateY(-8px);}
+.testimonial-card p{font-style:italic;}
+.testimonial-card h4{margin-top:10px;font-weight:600;}
+.dark .testimonial-card{background:#1e293b;color:white;}
+.team{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;}
+.team-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(15px);padding:20px;width:220px;border-radius:20px;text-align:center;transition:0.4s;box-shadow:0 15px 30px rgba(0,0,0,0.08);}
+.team-card img{width:100%;border-radius:50%;margin-bottom:12px;}
+.team-card:hover{transform:translateY(-8px);}
+.dark .team-card{background:#1e293b;color:white;}
+.counters{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px;}
+.counter{background:rgba(255,255,255,0.7);backdrop-filter:blur(15px);padding:30px;width:180px;border-radius:20px;text-align:center;transition:0.4s;box-shadow:0 15px 30px rgba(0,0,0,0.08);}
+.counter h3{font-size:32px;color:#0a3d62;}
+.counter p{margin-top:10px;font-weight:500;}
+.counter:hover{transform:translateY(-8px);}
+.dark .counter{background:#1e293b;color:white;}
+form{max-width:500px;margin:auto;}
+form input,form textarea,form input[type=date]{width:100%;padding:12px;margin:12px 0;border-radius:12px;border:1px solid #ccc;}
+form button{width:100%;padding:14px;border:none;background:#0a3d62;color:white;border-radius:30px;font-weight:600;cursor:pointer;}
+footer{background:#0a3d62;color:white;text-align:center;padding:40px 20px;position:relative;}
+footer a{color:white;margin:0 10px;font-size:20px;text-decoration:none;transition:0.3s;}
+footer a:hover{color:#25D366;}
+.whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;color:white;padding:16px;border-radius:50%;font-size:22px;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:0.3s;}
+.whatsapp:hover{transform:scale(1.1);}
+.chatbot-btn{position:fixed;bottom:100px;right:25px;background:#0a3d62;color:white;padding:15px;border-radius:50%;cursor:pointer;z-index:999;}
+.chatbox{position:fixed;bottom:160px;right:25px;width:300px;background:white;border-radius:15px;box-shadow:0 15px 35px rgba(0,0,0,0.2);display:none;flex-direction:column;}
+.chatbox header{background:#0a3d62;color:white;padding:12px;border-radius:15px 15px 0 0;}
+.chatbox .messages{padding:10px;height:200px;overflow-y:auto;font-size:14px;}
+.chatbox input{border:none;border-top:1px solid #ddd;padding:10px;width:100%;}
+.dark .chatbox{background:#1e293b;color:white;}
+.dark .chatbox input{background:#334155;color:white;}
+@keyframes slideDown{from{transform:translateY(-30px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.hidden{opacity:0;transform:translateY(60px);transition:all 0.8s ease;}
+.show{opacity:1;transform:translateY(0);}
+@media(max-width:768px){section{padding:80px 20px;} .hero h1{font-size:34px;}}
+</style>
+</head>
+<body><nav id="navbar">
+<h2>Aether Clinic</h2>
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#testimonials">Testimonials</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#contact">Contact</a></li>
+<li class="toggle" onclick="toggleDark()">🌙</li>
+</ul>
+</nav><!-- HERO --><section class="hero">
+<div class="hero-content hidden">
+<h1>Advanced Care. Exceptional Experience.</h1>
+<p>Premium dental care with precision and compassion.</p>
+<a href="#contact" class="btn">Book Appointment</a>
+</div>
+</section><!-- SERVICES --><section id="services">
+<div class="section-title hidden"><h2>Our Services</h2></div>
+<div class="services">
+<div class="card hidden"><h3>General Consultation</h3><p>Expert diagnosis & care.</p></div>
+<div class="card hidden"><h3>Dental Care</h3><p>Modern cosmetic dentistry.</p></div>
+<div class="card hidden"><h3>Diagnostics</h3><p>Advanced laboratory testing.</p></div>
+</div>
+</section><!-- PACKAGES --><section id="packages">
+<div class="section-title hidden"><h2>Dental Packages & Offers</h2></div>
+<div class="packages">
+<div class="package-card hidden"><h3>Teeth Cleaning + Whitening</h3><p>PKR 10,000 <span style="color:red;">- 20% OFF</span></p><button class="btn">Book Now</button></div>
+<div class="package-card hidden"><h3>Root Canal + Filling</h3><p>PKR 15,000</p><button class="btn">Book Now</button></div>
+<div class="package-card hidden"><h3>Dental Implants</h3><p>PKR 35,000</p><button class="btn">Book Now</button></div>
+</div>
+</section><!-- Full JS at the bottom for slider, counters, chatbot --><script>
+// Complete JS code for slider, counters, scroll reveal, dark mode, and chatbot
+window.addEventListener("scroll",()=>{document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>50);});
+function toggleDark(){document.body.classList.toggle("dark");}
+function toggleChat(){let box=document.getElementById("chatbox");box.style.display=box.style.display==="flex"?"none":"flex";}
+function sendMessage(e){if(e.key==="Enter"){let input=e.target;let msg=input.value;if(msg.trim()!=""){let messages=document.getElementById("messages");messages.innerHTML+=`<p><strong>You:</strong> ${msg}</p>`;messages.innerHTML+=`<p><strong>Bot:</strong> Please call or WhatsApp us at 03299047294 for booking.</p>`;input.value="";messages.scrollTop=messages.scrollHeight;}}}
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("show");}});});
+document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
+let track=document.querySelector(".slider-track");
+let slides=document.querySelectorAll(".slide");
+let index=0;
+let dots=document.querySelectorAll(".slider-dots span");
+function showSlide(i){index=(i+slides.length)%slides.length;track.style.transform=`translateX(-${index*100}%)`;dots.forEach(d=>d.classList.remove("active"));dots[index].classList.add("active");}
+document.getElementById("prev").addEventListener("click",()=>showSlide(index-1));
+document.getElementById("next").addEventListener("click",()=>showSlide(index+1));
+dots.forEach((dot,i)=>{dot.addEventListener("click",()=>showSlide(i));});
+setInterval(()=>showSlide(index+1),4000);
+</script></body>
+</html>
